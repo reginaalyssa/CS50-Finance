@@ -1,6 +1,7 @@
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session, url_for
 from flask_session import Session
+from flask.ext.heroku import Heroku
 from passlib.apps import custom_app_context as pwd_context
 from tempfile import mkdtemp
 import os
@@ -10,6 +11,7 @@ from helpers import *
 
 # configure application
 app = Flask(__name__)
+heroku = Heroku(app)
 
 # ensure responses aren't cached
 if app.config["DEBUG"]:
