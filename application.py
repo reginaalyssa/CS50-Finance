@@ -393,3 +393,8 @@ def change_password():
     else:
         user = db.execute("SELECT * FROM users where id = :id", id=session["user_id"])
         return render_template("password.html", user=user[0])
+
+if __name__ == '__main__':
+    app.debug = True
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
