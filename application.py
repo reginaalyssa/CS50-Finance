@@ -48,7 +48,7 @@ def index():
         # remove rows with 0 shares
         if row["shares"] == 0:
             rows.remove(row)
-
+            
         else:
             # retrieve current price of stock
             quote = lookup(row["symbol"])
