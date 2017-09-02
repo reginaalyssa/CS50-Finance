@@ -1,11 +1,10 @@
+import os
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session, url_for
 from flask_session import Session
 from flask_heroku import Heroku
 from passlib.apps import custom_app_context as pwd_context
 from tempfile import mkdtemp
-import os
-import sqlalchemy
 
 from helpers import *
 
