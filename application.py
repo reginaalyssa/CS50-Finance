@@ -45,15 +45,20 @@ def index():
     grand_total = 0
     for row in rows:
 
-        # retrieve current price of stock
-        quote = lookup(row["symbol"])
-        price = quote["price"]
-        total = float(price * row["shares"])
+        # remove rows with 0 shares
+        if row["shares"] == 0:
+            rows.remove(row)
 
-        grand_total += total
+        else:
+            # retrieve current price of stock
+            quote = lookup(row["symbol"])
+            price = quote["price"]
+            total = float(price * row["shares"])
 
-        row["price"] = usd(price)
-        row["total"] = usd(total)
+            grand_total += total
+
+            row["price"] = usd(price)
+            row["total"] = usd(total)
 
     # get user's current cash balance
     cash = db.execute("SELECT * FROM users WHERE id = :id", id=session["user_id"])[0]["cash"]
