@@ -38,26 +38,22 @@ db = SQL("sqlite:///finance.db")
 @login_required
 def index():
     # retrieve symbol, name, and shares of stock from db
-    rows = db.execute("""SELECT symbol, name, sum(shares) AS shares FROM transactions 
-        JOIN stocks on transactions.stock_id = stocks.id WHERE user_id = :id 
-        GROUP BY symbol""", id=session["user_id"])
+    rows = db.execute("""SELECT symbol, name, SUM(shares) AS shares FROM transactions
+        JOIN stocks on transactions.stock_id = stocks.id WHERE user_id = :id
+        GROUP BY symbol HAVING SUM(shares) != 0""", id=session["user_id"])
 
     grand_total = 0
     for row in rows:
 
-        # remove rows with 0 shares
-        if row["shares"] == 0:
-            rows.remove(row)
-            
-            # retrieve current price of stock
-            quote = lookup(row["symbol"])
-            price = quote["price"]
-            total = float(price * row["shares"])
+        # retrieve current price of stock
+        quote = lookup(row["symbol"])
+        price = quote["price"]
+        total = float(price * row["shares"])
 
-            grand_total += total
+        grand_total += total
 
-            row["price"] = usd(price)
-            row["total"] = usd(total)
+        row["price"] = usd(price)
+        row["total"] = usd(total)
 
     # get user's current cash balance
     cash = db.execute("SELECT * FROM users WHERE id = :id", id=session["user_id"])[0]["cash"]
@@ -67,7 +63,6 @@ def index():
     # convert prices to USD format
     cash = usd(cash)
     grand_total = usd(grand_total)
-
     return render_template("index.html", stocks=rows, cash=cash, grand_total=grand_total)
 
 
