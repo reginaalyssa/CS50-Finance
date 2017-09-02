@@ -10,7 +10,7 @@ My version of C$50 Finance used the following in its implementation:
 - [Flask-Heroku] (for setting configuration defaults for Heroku-esque environment variables)
 - [Heroku] (for deployment)
 
-The web application can be accessed at [ra-cs50-finance.herokuapp.com]. Feel free to explore its functionalities and let me know if you find any bugs!
+The web application can be accessed at [ra-cs50-finance.herokuapp.com]. Feel free to explore its functionalities and send me an [email] if you find any bugs.
 
 [ra-cs50-finance.herokuapp.com]: <ra-cs50-finance.herokuapp.com>
 [Problem Set 7 - C$50 Finance]: <http://docs.cs50.net/problems/finance/finance.html>
@@ -19,3 +19,4 @@ The web application can be accessed at [ra-cs50-finance.herokuapp.com]. Feel fre
 [Heroku]: <https://www.heroku.com/>
 [SQLite]: <https://www.sqlite.org/>
 [Flask]: <http://flask.pocoo.org/>
+[email]: <mailto:reginaalyssa01809@gmail.com>
