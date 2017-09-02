@@ -12,7 +12,7 @@ My version of C$50 Finance used the following in its implementation:
 
 The web application can be accessed at [ra-cs50-finance.herokuapp.com]. Feel free to explore its functionalities and send me an [email] if you find any bugs.
 
-[ra-cs50-finance.herokuapp.com]: <ra-cs50-finance.herokuapp.com>
+[ra-cs50-finance.herokuapp.com]: <https://ra-cs50-finance.herokuapp.com>
 [Problem Set 7 - C$50 Finance]: <http://docs.cs50.net/problems/finance/finance.html>
 [Yahoo! Finance]: <http://finance.yahoo.com/>
 [Flask-Heroku]: <https://github.com/kennethreitz/flask-heroku/>
